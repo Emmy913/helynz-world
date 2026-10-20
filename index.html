@@ -1,880 +1,273 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#111111">
-  <meta name="description" content="Discover timeless style at VOLERA Fashion Store. Shop premium fashion, elegant outfits and modern essentials.">
-
-  <title>VOLERA | Fashion Store</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --black: #111111;
-      --cream: #f8f5ef;
-      --gold: #b99a63;
-      --white: #ffffff;
-      --muted: #77736c;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 90px;
-    }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--cream);
-      color: var(--black);
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font: inherit;
-      cursor: pointer;
-    }
-
-    img {
-      display: block;
-      width: 100%;
-      object-fit: cover;
-    }
-
-    .announcement {
-      background: var(--black);
-      color: var(--white);
-      text-align: center;
-      padding: 9px 12px;
-      font-size: 10px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(248, 245, 239, 0.96);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid #e7e0d5;
-    }
-
-    .navbar {
-      max-width: 1250px;
-      margin: auto;
-      min-height: 82px;
-      padding: 15px 5%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 29px;
-      font-weight: 700;
-      letter-spacing: 5px;
-    }
-
-    .logo span {
-      color: var(--gold);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      align-items: center;
-      font-size: 12px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .nav-links a:hover {
-      color: var(--gold);
-    }
-
-    .nav-cta {
-      border: 1px solid var(--black);
-      padding: 12px 17px;
-      font-size: 11px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .hero {
-      min-height: 610px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      background: #e8dfd2;
-    }
-
-    .hero-copy {
-      padding: 85px 8% 85px max(8%, calc((100vw - 1250px) / 2));
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-    }
-
-    .eyebrow {
-      color: var(--gold);
-      text-transform: uppercase;
-      font-size: 10px;
-      letter-spacing: 3px;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-
-    h1, h2, h3 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 500;
-      line-height: 1.15;
-    }
-
-    h1 {
-      font-size: clamp(43px, 5vw, 70px);
-      max-width: 590px;
-      letter-spacing: -1.5px;
-    }
-
-    h1 em {
-      color: #9a7945;
-      font-weight: 500;
-    }
-
-    .hero-copy p {
-      max-width: 430px;
-      margin: 23px 0 30px;
-      color: #59544d;
-      font-size: 14px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--black);
-      color: var(--white);
-      padding: 15px 24px;
-      font-size: 11px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      border: 1px solid var(--black);
-      transition: 0.25s;
-    }
-
-    .button:hover {
-      background: var(--gold);
-      border-color: var(--gold);
-      color: var(--black);
-    }
-
-    .button-light {
-      background: transparent;
-      color: var(--black);
-      margin-left: 8px;
-    }
-
-    .hero-image {
-      min-height: 610px;
-      background: #d4c7b5;
-      overflow: hidden;
-    }
-
-    .hero-image img {
-      height: 100%;
-      min-height: 610px;
-      object-position: center;
-    }
-
-    .trust-strip {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      background: var(--black);
-      color: var(--white);
-      padding: 25px 5%;
-      text-align: center;
-    }
-
-    .trust-strip div {
-      font-size: 10px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 8px;
-    }
-
-    .trust-strip div + div {
-      border-left: 1px solid #45413b;
-    }
-
-    .section {
-      max-width: 1250px;
-      margin: auto;
-      padding: 100px 5%;
-    }
-
-    .section-heading {
-      text-align: center;
-      max-width: 600px;
-      margin: 0 auto 45px;
-    }
-
-    .section-heading h2 {
-      font-size: clamp(34px, 4vw, 47px);
-    }
-
-    .section-heading p {
-      margin-top: 13px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .categories {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .category {
-      position: relative;
-      height: 390px;
-      overflow: hidden;
-      background: #ded4c7;
-    }
-
-    .category img {
-      height: 100%;
-      transition: transform 0.6s;
-    }
-
-    .category:hover img {
-      transform: scale(1.05);
-    }
-
-    .category-label {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 35px 20px 22px;
-      color: white;
-      background: linear-gradient(transparent, rgba(0,0,0,0.78));
-    }
-
-    .category-label h3 {
-      font-size: 27px;
-      margin-bottom: 8px;
-    }
-
-    .category-label span {
-      font-size: 10px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .products-section {
-      background: #eee8de;
-    }
-
-    .products-inner {
-      max-width: 1250px;
-      padding: 90px 5%;
-      margin: auto;
-    }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .product-image {
-      height: 310px;
-      overflow: hidden;
-      background: #ded5c9;
-      position: relative;
-    }
-
-    .product-image img {
-      height: 100%;
-      transition: transform 0.5s;
-    }
-
-    .product-card:hover img {
-      transform: scale(1.04);
-    }
-
-    .tag {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      background: var(--cream);
-      padding: 6px 10px;
-      font-size: 9px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .product-info {
-      padding: 15px 0;
-    }
-
-    .product-info h3 {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    .product-info p {
-      color: var(--muted);
-      font-size: 12px;
-      margin: 5px 0 13px;
-    }
-
-    .product-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-    }
-
-    .price {
-      font-weight: 700;
-      font-size: 14px;
-    }
-
-    .order-link {
-      border-bottom: 1px solid var(--gold);
-      font-size: 10px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding-bottom: 3px;
-    }
-
-    .story {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 70px;
-      align-items: center;
-    }
-
-    .story-image {
-      height: 480px;
-      background: #ded5c9;
-    }
-
-    .story-image img {
-      height: 100%;
-    }
-
-    .story-copy h2 {
-      font-size: clamp(36px, 4vw, 49px);
-      margin-bottom: 20px;
-    }
-
-    .story-copy p {
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 18px;
-    }
-
-    .story-copy .button {
-      margin-top: 10px;
-    }
-
-    .newsletter {
-      background: var(--black);
-      color: white;
-      text-align: center;
-      padding: 80px 5%;
-    }
-
-    .newsletter h2 {
-      font-size: clamp(32px, 4vw, 45px);
-    }
-
-    .newsletter p {
-      max-width: 500px;
-      margin: 15px auto 25px;
-      color: #c6c1b8;
-      font-size: 13px;
-    }
-
-    .newsletter .button {
-      background: var(--gold);
-      color: var(--black);
-      border-color: var(--gold);
-    }
-
-    footer {
-      background: #0a0a0a;
-      color: white;
-      padding: 55px 5% 25px;
-    }
-
-    .footer-inner {
-      max-width: 1250px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      gap: 30px;
-      flex-wrap: wrap;
-      padding-bottom: 35px;
-    }
-
-    .footer-brand p {
-      color: #aaa49a;
-      font-size: 12px;
-      max-width: 300px;
-      margin-top: 13px;
-    }
-
-    .footer-links h3 {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 11px;
-      letter-spacing: 2px;
-      margin-bottom: 14px;
-    }
-
-    .footer-links a {
-      display: block;
-      color: #aaa49a;
-      font-size: 12px;
-      margin: 8px 0;
-    }
-
-    .copyright {
-      border-top: 1px solid #333;
-      padding-top: 20px;
-      text-align: center;
-      color: #aaa49a;
-      font-size: 10px;
-      letter-spacing: 1px;
-    }
-
-    .whatsapp {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      z-index: 200;
-      background: #218c58;
-      color: white;
-      padding: 14px 19px;
-      border-radius: 40px;
-      box-shadow: 0 5px 20px #0002;
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 850px) {
-      .navbar {
-        flex-wrap: wrap;
-        min-height: auto;
-      }
-
-      .logo {
-        font-size: 25px;
-      }
-
-      .nav-links {
-        order: 3;
-        width: 100%;
-        justify-content: center;
-        gap: 20px;
-        flex-wrap: wrap;
-      }
-
-      .nav-cta {
-        padding: 10px 12px;
-      }
-
-      .hero {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-copy {
-        padding: 65px 7%;
-      }
-
-      .hero-image,
-      .hero-image img {
-        min-height: 400px;
-        height: 400px;
-      }
-
-      .categories {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .category:last-child {
-        grid-column: 1 / -1;
-      }
-
-      .products-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px 14px;
-      }
-
-      .product-image {
-        height: 260px;
-      }
-
-      .story {
-        grid-template-columns: 1fr;
-        gap: 35px;
-      }
-
-      .story-image {
-        height: 380px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .announcement {
-        font-size: 8px;
-        letter-spacing: 1px;
-      }
-
-      .nav-links {
-        gap: 13px;
-        font-size: 10px;
-      }
-
-      .hero-copy {
-        padding: 55px 6%;
-      }
-
-      h1 {
-        font-size: 43px;
-      }
-
-      .hero-copy .button {
-        padding: 13px 15px;
-        font-size: 10px;
-      }
-
-      .trust-strip {
-        padding: 15px 2%;
-      }
-
-      .trust-strip div {
-        font-size: 8px;
-        letter-spacing: 1px;
-        padding: 5px;
-      }
-
-      .section,
-      .products-inner {
-        padding: 65px 5%;
-      }
-
-      .categories {
-        grid-template-columns: 1fr;
-      }
-
-      .category,
-      .category:last-child {
-        grid-column: auto;
-        height: 370px;
-      }
-
-      .product-image {
-        height: 220px;
-      }
-
-      .product-info h3 {
-        font-size: 12px;
-      }
-
-      .price {
-        font-size: 12px;
-      }
-
-      .order-link {
-        font-size: 9px;
-      }
-
-      .whatsapp {
-        right: 12px;
-        bottom: 12px;
-        padding: 12px 15px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        scroll-behavior: auto !important;
-        transition: none !important;
-      }
-
-      .reveal {
-        opacity: 1;
-        transform: none;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101010">
+<title>VOLERA | Premium Fashion Store</title>
+<style>
+:root {
+  --black:#101010;
+  --cream:#f8f4ec;
+  --gold:#c9a45c;
+  --white:#ffffff;
+  --gray:#777;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,sans-serif;background:var(--cream);color:var(--black)}
+header{background:var(--black);color:white;padding:18px 6%;display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.logo{font-size:28px;letter-spacing:5px;font-weight:bold;color:var(--gold)}
+nav{display:flex;gap:20px;flex-wrap:wrap}
+nav a{color:white;text-decoration:none;font-size:13px}
+nav a:hover{color:var(--gold)}
+.hero{min-height:480px;background:linear-gradient(90deg,rgba(0,0,0,.83),rgba(0,0,0,.25)),url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1600&q=85') center/cover;display:flex;align-items:center;padding:60px 8%;color:white}
+.hero-content{max-width:600px}
+.eyebrow{color:var(--gold);letter-spacing:3px;font-size:12px;margin-bottom:18px}
+.hero h1{font-size:clamp(38px,7vw,70px);line-height:1.08;margin-bottom:20px}
+.hero p{line-height:1.8;color:#eee;max-width:470px;margin-bottom:28px}
+.btn{display:inline-block;background:var(--gold);color:#111;padding:14px 22px;text-decoration:none;font-weight:bold;border:none;cursor:pointer}
+.btn:hover{background:#e0c17e}
+section{padding:65px 6%}
+.section-heading{text-align:center;margin-bottom:30px}
+.section-heading p{color:var(--gray);margin-top:10px;line-height:1.6}
+.section-heading h2{font-size:clamp(28px,4vw,40px)}
+.categories{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.category{height:300px;position:relative;overflow:hidden;background:#222}
+.category img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.category:hover img{transform:scale(1.06)}
+.category-text{position:absolute;bottom:0;left:0;right:0;padding:25px;color:white;background:linear-gradient(transparent,rgba(0,0,0,.85))}
+.category-text h3{font-size:28px;margin-bottom:10px}
+.shop-bar{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:25px}
+input,select{padding:13px;border:1px solid #ddd;background:white;font-size:14px;min-width:0}
+#search{flex:1;min-width:180px}
+.products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.product{background:white;padding-bottom:18px}
+.product img{width:100%;height:260px;object-fit:cover;background:#eee}
+.product-info{padding:15px}
+.product-info h3{font-size:16px;margin-bottom:8px}
+.product-info p{color:var(--gray);font-size:13px;margin-bottom:10px}
+.price{font-weight:bold;color:#9b7535;margin-bottom:12px}
+.product-info select{width:100%;margin-bottom:10px}
+.product-info button{width:100%}
+.bag{background:#171717;color:white}
+.bag .section-heading p{color:#ccc}
+.bag-row{display:flex;justify-content:space-between;gap:12px;padding:15px 0;border-bottom:1px solid #444;align-items:center}
+.bag-row button{background:none;color:#e5c27d;border:none;cursor:pointer}
+.bag-total{font-size:22px;margin:25px 0}
+.note{font-size:12px;color:#bbb;line-height:1.7;margin-top:15px}
+.about{text-align:center;max-width:760px;margin:auto;line-height:1.9}
+footer{text-align:center;background:#090909;color:#ccc;padding:28px 15px;font-size:13px;line-height:2}
+footer strong{color:var(--gold)}
+.empty{text-align:center;grid-column:1/-1;padding:30px;color:var(--gray)}
+@media(max-width:900px){.products{grid-template-columns:repeat(2,minmax(0,1fr))}.product img{height:240px}}
+@media(max-width:560px){header{justify-content:center;text-align:center}nav{justify-content:center;gap:14px}.hero{min-height:420px;padding:45px 6%}.categories{grid-template-columns:1fr}.category{height:260px}.products{gap:12px}.product img{height:190px}.product-info{padding:10px}.product-info h3{font-size:14px}section{padding:48px 5%}}
+</style>
 </head>
-
 <body>
-  <div class="announcement">
-    Discover your style · Welcome to VOLERA
+
+<header>
+  <a href="#home" class="logo" style="text-decoration:none">VOLERA</a>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#collections">Collections</a>
+    <a href="#shop">Shop</a>
+    <a href="#about">About</a>
+    <a href="#bag">Shopping Bag (<span id="bag-count">0</span>)</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <p class="eyebrow">STYLE • QUALITY • CONFIDENCE</p>
+    <h1>Wear Your Style. Own Your Moment.</h1>
+    <p>Discover fashion made for every occasion. Explore timeless looks and modern styles for men and women at VOLERA.</p>
+    <a href="#shop" class="btn">SHOP THE COLLECTION</a>
+  </div>
+</section>
+
+<section id="collections">
+  <div class="section-heading">
+    <p class="eyebrow">FIND YOUR LOOK</p>
+    <h2>Explore Our Collections</h2>
+    <p>Fashion for him. Fashion for her. One destination for great style.</p>
+  </div>
+  <div class="categories">
+    <a href="#shop" class="category" onclick="setCategory('Men')">
+      <img src="https://images.unsplash.com/photo-1516257984-b1b4d707412e?auto=format&fit=crop&w=900&q=85" alt="Men's fashion">
+      <div class="category-text"><h3>Men's Collection</h3><span>Explore men's style ↗</span></div>
+    </a>
+    <a href="#shop" class="category" onclick="setCategory('Women')">
+      <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=85" alt="Women's fashion">
+      <div class="category-text"><h3>Women's Collection</h3><span>Explore women's style ↗</span></div>
+    </a>
+  </div>
+</section>
+
+<section id="shop">
+  <div class="section-heading">
+    <p class="eyebrow">THE VOLERA EDIT</p>
+    <h2>Shop Our Products</h2>
+    <p>Choose your style, select your size and add your favourites to your bag.</p>
   </div>
 
-  <header>
-    <nav class="navbar">
-      <a href="#home" class="logo">VOL<span>E</span>RA</a>
+  <div class="shop-bar">
+    <input id="search" type="search" placeholder="Search products..." oninput="renderProducts()">
+    <select id="category" onchange="renderProducts()">
+      <option value="All">All Collections</option>
+      <option value="Men">Men</option>
+      <option value="Women">Women</option>
+    </select>
+    <select id="sort" onchange="renderProducts()">
+      <option value="default">Sort Products</option>
+      <option value="low">Price: Low to High</option>
+      <option value="high">Price: High to Low</option>
+    </select>
+  </div>
 
-      <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#collections">Collections</a>
-        <a href="#shop">Shop</a>
-        <a href="#about">Our Story</a>
+  <div class="products" id="products"></div>
+  <p style="font-size:12px;color:#777;margin-top:18px;text-align:center">Product photos and prices are examples. Update them to match your actual stock before accepting orders.</p>
+</section>
+
+<section class="bag" id="bag">
+  <div class="section-heading">
+    <p class="eyebrow">YOUR SELECTION</p>
+    <h2>Your Shopping Bag</h2>
+    <p>Review your items before placing your order.</p>
+  </div>
+  <div id="bag-items"><p>Your bag is empty.</p></div>
+  <p class="bag-total">Total: ₦<span id="total">0</span></p>
+  <button class="btn" onclick="checkout()">ORDER ON WHATSAPP ↗</button>
+  <p class="note">Your order will be sent to WhatsApp for confirmation. Payment is not collected on this website.</p>
+</section>
+
+<section id="about">
+  <div class="about">
+    <p class="eyebrow">ABOUT VOLERA</p>
+    <h2>Style That Speaks for You.</h2>
+    <p style="margin-top:18px">VOLERA is a fashion store for men and women who appreciate style, confidence and individuality. Explore our collections and find looks that suit your personality.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <strong style="letter-spacing:4px;font-size:20px">VOLERA</strong>
+  <p>Style • Quality • Confidence</p>
+  <p>For orders and enquiries, contact us through WhatsApp.</p>
+  <p>© 2026 VOLERA Fashion Store. All rights reserved.</p>
+</footer>
+
+<script>
+const WHATSAPP_NUMBER = "2349049159383";
+
+const productsData = [
+  {id:1,name:"Classic Men's Shirt",category:"Men",price:18000,size:["S","M","L","XL"],image:"https://images.unsplash.com/photo-1603252110481-7ba873bf42ab?auto=format&fit=crop&w=700&q=85"},
+  {id:2,name:"Smart Casual Outfit",category:"Men",price:35000,size:["M","L","XL","XXL"],image:"https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=700&q=85"},
+  {id:3,name:"Everyday Men's Wear",category:"Men",price:22000,size:["S","M","L","XL"],image:"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=700&q=85"},
+  {id:4,name:"Women's Elegant Outfit",category:"Women",price:30000,size:["S","M","L","XL"],image:"https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=700&q=85"},
+  {id:5,name:"Modern Women's Style",category:"Women",price:28000,size:["S","M","L"],image:"https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=700&q=85"},
+  {id:6,name:"Women's Fashion Look",category:"Women",price:40000,size:["S","M","L","XL"],image:"https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=700&q=85"},
+  {id:7,name:"Men's Weekend Look",category:"Men",price:25000,size:["M","L","XL"],image:"https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=700&q=85"},
+  {id:8,name:"Women's Classic Wear",category:"Women",price:32000,size:["S","M","L","XL"],image:"https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=700&q=85"}
+];
+
+let bag = [];
+
+function money(amount) {
+  return amount.toLocaleString("en-NG");
+}
+
+function setCategory(value) {
+  document.getElementById("category").value = value;
+  renderProducts();
+}
+
+function renderProducts() {
+  const search = document.getElementById("search").value.toLowerCase();
+  const category = document.getElementById("category").value;
+  const sort = document.getElementById("sort").value;
+  let items = productsData.filter(p =>
+    p.name.toLowerCase().includes(search) &&
+    (category === "All" || p.category === category)
+  );
+
+  if (sort === "low") items.sort((a,b) => a.price-b.price);
+  if (sort === "high") items.sort((a,b) => b.price-a.price);
+
+  const container = document.getElementById("products");
+  if (!items.length) {
+    container.innerHTML = '<p class="empty">No products found. Try another search.</p>';
+    return;
+  }
+
+  container.innerHTML = items.map(p => `
+    <article class="product">
+      <img src="${p.image}" alt="${p.name}" loading="lazy">
+      <div class="product-info">
+        <p>${p.category}'s Collection</p>
+        <h3>${p.name}</h3>
+        <div class="price">₦${money(p.price)}</div>
+        <select id="size-${p.id}" aria-label="Choose size for ${p.name}">
+          ${p.size.map(s => `<option value="${s}">Size ${s}</option>`).join("")}
+        </select>
+        <button class="btn" onclick="addToBag(${p.id})">ADD TO BAG</button>
       </div>
+    </article>
+  `).join("");
+}
 
-      <a class="nav-cta" href="#shop">Explore Style ↗</a>
-    </nav>
-  </header>
+function addToBag(id) {
+  const product = productsData.find(p => p.id === id);
+  const size = document.getElementById("size-" + id).value;
+  bag.push({...product, selectedSize:size, cartId:Date.now()+Math.random()});
+  renderBag();
+}
 
-  <main>
-    <section class="hero" id="home">
-      <div class="hero-copy">
-        <span class="eyebrow">The New Fashion Standard</span>
-        <h1>Style That Speaks. <em>Elegance That Lasts.</em></h1>
-        <p>
-          Discover timeless pieces, modern essentials and effortless
-          elegance. Your personal style begins here.
-        </p>
-        <div>
-          <a href="#shop" class="button">Shop Collection ↗</a>
-          <a href="#collections" class="button button-light">Discover</a>
-        </div>
+function removeFromBag(cartId) {
+  bag = bag.filter(item => item.cartId !== cartId);
+  renderBag();
+}
+
+function renderBag() {
+  document.getElementById("bag-count").textContent = bag.length;
+  const container = document.getElementById("bag-items");
+
+  if (!bag.length) {
+    container.innerHTML = "<p>Your bag is empty.</p>";
+  } else {
+    container.innerHTML = bag.map(item => `
+      <div class="bag-row">
+        <div><strong>${item.name}</strong><br>
+        <small>Size: ${item.selectedSize} · ₦${money(item.price)}</small></div>
+        <button onclick="removeFromBag(${item.cartId})">Remove</button>
       </div>
+    `).join("");
+  }
 
-      <div class="hero-image">
-        <img
-          src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1200&q=85"
-          alt="Elegant fashion editorial look"
-          fetchpriority="high">
-      </div>
-    </section>
+  const total = bag.reduce((sum,item) => sum + item.price,0);
+  document.getElementById("total").textContent = money(total);
+}
 
-    <div class="trust-strip">
-      <div>✦ Timeless Style</div>
-      <div>✦ Quality First</div>
-      <div>✦ Made for You</div>
-    </div>
+function checkout() {
+  if (!bag.length) {
+    alert("Your shopping bag is empty. Please add a product first.");
+    return;
+  }
 
-    <section class="section reveal" id="collections">
-      <div class="section-heading">
-        <span class="eyebrow">Find Your Look</span>
-        <h2>Explore Our Collections</h2>
-        <p>Curated styles for every mood, every moment and every version of you.</p>
-      </div>
+  const order = bag.map((item,index) =>
+    `${index+1}. ${item.name} - Size ${item.selectedSize} - ₦${money(item.price)}`
+  ).join("\n");
 
-      <div class="categories">
-        <a class="category" href="#shop">
-          <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=85" alt="Women's fashion collection" loading="lazy">
-          <div class="category-label">
-            <h3>Women</h3>
-            <span>Explore the collection ↗</span>
-          </div>
-        </a>
+  const total = bag.reduce((sum,item) => sum + item.price,0);
+  const message = `Hello VOLERA! I would like to place an order:\n\n${order}\n\nTotal: ₦${money(total)}\n\nPlease confirm availability and delivery details.`;
+  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  window.open(url,"_blank");
+}
 
-        <a class="category" href="#shop">
-          <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=800&q=85" alt="Men's fashion collection" loading="lazy">
-          <div class="category-label">
-            <h3>Men</h3>
-            <span>Explore the collection ↗</span>
-          </div>
-        </a>
-
-        <a class="category" href="#shop">
-          <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=85" alt="Fashion accessories and styling" loading="lazy">
-          <div class="category-label">
-            <h3>Accessories</h3>
-            <span>Complete your look ↗</span>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <section class="products-section reveal" id="shop">
-      <div class="products-inner">
-        <div class="section-heading">
-          <span class="eyebrow">Selected for You</span>
-          <h2>Featured Pieces</h2>
-          <p>A first look at the VOLERA style collection.</p>
-        </div>
-
-        <div class="products-grid">
-          <article class="product-card">
-            <div class="product-image">
-              <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=700&q=85" alt="Classic tailored jacket" loading="lazy">
-              <span class="tag">Essential</span>
-            </div>
-            <div class="product-info">
-              <h3>The Signature Jacket</h3>
-              <p>Smart · Timeless · Refined</p>
-              <div class="product-bottom">
-                <span class="price">₦45,000</span>
-                <a class="order-link" href="https://wa.me/2349049159383?text=Hello%20VOLERA%2C%20I%20am%20interested%20in%20The%20Signature%20Jacket.%20Please%20confirm%20the%20price%20and%20availability." target="_blank" rel="noopener noreferrer">Enquire ↗</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image">
-              <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=700&q=85" alt="Elegant women's outfit" loading="lazy">
-              <span class="tag">Popular</span>
-            </div>
-            <div class="product-info">
-              <h3>The Elegance Dress</h3>
-              <p>Elegant · Confident · Modern</p>
-              <div class="product-bottom">
-                <span class="price">₦38,000</span>
-                <a class="order-link" href="https://wa.me/2349049159383?text=Hello%20VOLERA%2C%20I%20am%20interested%20in%20The%20Elegance%20Dress.%20Please%20confirm%20the%20price%20and%20availability." target="_blank" rel="noopener noreferrer">Enquire ↗</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image">
-              <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=700&q=85" alt="Minimal everyday fashion top" loading="lazy">
-              <span class="tag">Everyday</span>
-            </div>
-            <div class="product-info">
-              <h3>The Everyday Essential</h3>
-              <p>Minimal · Versatile · Easy</p>
-              <div class="product-bottom">
-                <span class="price">₦18,000</span>
-                <a class="order-link" href="https://wa.me/2349049159383?text=Hello%20VOLERA%2C%20I%20am%20interested%20in%20The%20Everyday%20Essential.%20Please%20confirm%20the%20price%20and%20availability." target="_blank" rel="noopener noreferrer">Enquire ↗</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image">
-              <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=85" alt="Contemporary fashion look" loading="lazy">
-              <span class="tag">New Style</span>
-            </div>
-            <div class="product-info">
-              <h3>The Statement Look</h3>
-              <p>Bold · Contemporary · Chic</p>
-              <div class="product-bottom">
-                <span class="price">₦32,000</span>
-                <a class="order-link" href="https://wa.me/2349049159383?text=Hello%20VOLERA%2C%20I%20am%20interested%20in%20The%20Statement%20Look.%20Please%20confirm%20the%20price%20and%20availability." target="_blank" rel="noopener noreferrer">Enquire ↗</a>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section reveal" id="about">
-      <div class="story">
-        <div class="story-image">
-          <img src="https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=1000&q=85" alt="Modern fashion editorial" loading="lazy">
-        </div>
-
-        <div class="story-copy">
-          <span class="eyebrow">The VOLERA Philosophy</span>
-          <h2>Fashion Is More Than What You Wear.</h2>
-          <p>
-            At VOLERA, we believe great style is about confidence,
-            individuality and the details that make you unique.
-          </p>
-          <p>
-            Our vision is to bring together modern design and timeless
-            elegance, helping you find pieces that feel as good as they look.
-          </p>
-          <a href="#shop" class="button">Find Your Style ↗</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="newsletter reveal">
-      <span class="eyebrow">Your Style Journey Starts Here</span>
-      <h2>Make Every Look Count.</h2>
-      <p>
-        Have a question about an outfit, size or order?
-        Talk to our team directly and let us help you find your style.
-      </p>
-      <a class="button" href="https://wa.me/2349049159383?text=Hello%20VOLERA%20Fashion%20Store%2C%20I%20would%20like%20to%20make%20an%20enquiry." target="_blank" rel="noopener noreferrer">Chat With Us on WhatsApp ↗</a>
-    </section>
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <a href="#home" class="logo">VOL<span>E</span>RA</a>
-        <p>Modern fashion. Timeless elegance. A style that is uniquely yours.</p>
-      </div>
-
-      <div class="footer-links">
-        <h3>EXPLORE</h3>
-        <a href="#home">Home</a>
-        <a href="#collections">Collections</a>
-        <a href="#shop">Featured Pieces</a>
-        <a href="#about">Our Story</a>
-      </div>
-
-      <div class="footer-links">
-        <h3>GET IN TOUCH</h3>
-        <a href="https://wa.me/2349049159383" target="_blank" rel="noopener noreferrer">WhatsApp Us ↗</a>
-        <a href="#shop">Product Enquiries</a>
-      </div>
-    </div>
-
-    <div class="copyright">
-      © 2026 VOLERA FASHION STORE. ALL RIGHTS RESERVED.
-    </div>
-  </footer>
-
-  <a class="whatsapp" href="https://wa.me/2349049159383?text=Hello%20VOLERA%20Fashion%20Store%2C%20I%20would%20like%20to%20make%20an%20enquiry." target="_blank" rel="noopener noreferrer" aria-label="Contact VOLERA on WhatsApp">
-    WhatsApp ↗
-  </a>
-
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll('.reveal').forEach((section) => {
-      observer.observe(section);
-    });
-  </script>
+renderProducts();
+renderBag();
+</script>
 </body>
 </html>
+
