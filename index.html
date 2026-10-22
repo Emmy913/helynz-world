@@ -166,6 +166,42 @@ footer{text-align:center;padding:25px;color:#bdb6a7;border-top:1px solid #393124
   <p>© 2026 Helynz World. All rights reserved.</p>
 </footer>
 
+<section id="enquiry" style="max-width:600px;margin:30px auto;padding:25px 18px;background:#1c1c1c;border-radius:10px;color:#f8f4eb;">
+  <h2 style="color:#d8b66a;text-align:center;">Order Enquiry</h2>
+  <p style="text-align:center;">Interested in our collection? Send us an enquiry.</p>
+
+  <form action="https://formsubmit.co/helenadishi79@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="New Helynz World Order Enquiry">
+    <input type="hidden" name="_template" value="table">
+
+    <label for="customer-name">Your full name</label>
+    <input id="customer-name" type="text" name="Customer Name" required placeholder="Enter your name" style="display:block;width:100%;padding:12px;margin:8px 0 16px;border-radius:5px;">
+
+    <label for="customer-phone">Your phone number</label>
+    <input id="customer-phone" type="tel" name="Phone Number" required placeholder="Enter your phone number" style="display:block;width:100%;padding:12px;margin:8px 0 16px;border-radius:5px;">
+
+    <label for="product-choice">Choose your item</label>
+    <select id="product-choice" name="Selected Item" required style="display:block;width:100%;padding:12px;margin:8px 0 16px;border-radius:5px;">
+      <option value="">Select a jewellery item</option>
+      <option>Elegant Collection 1 - ₦15,000</option>
+      <option>Elegant Collection 2 - ₦15,000</option>
+      <option>Elegant Collection 3 - ₦25,000</option>
+      <option>Elegant Collection 4 - ₦25,000</option>
+      <option>Elegant Collection 5 - ₦25,000</option>
+      <option>Elegant Collection 6 - ₦25,000</option>
+      <option>Elegant Collection 7 - ₦25,000</option>
+    </select>
+
+    <label for="delivery-address">Delivery address</label>
+    <textarea id="delivery-address" name="Delivery Address" required placeholder="Enter your delivery address" rows="3" style="display:block;width:100%;padding:12px;margin:8px 0 16px;border-radius:5px;"></textarea>
+
+    <label for="customer-message">Additional message (optional)</label>
+    <textarea id="customer-message" name="Message" placeholder="Any questions or delivery details?" rows="3" style="display:block;width:100%;padding:12px;margin:8px 0 16px;border-radius:5px;"></textarea>
+
+    <button type="submit" style="width:100%;padding:14px;background:#d8b66a;color:#17130b;border:0;border-radius:5px;font-weight:bold;font-size:16px;cursor:pointer;">Submit Enquiry</button>
+  </form>
+</section>
+
 </body>
 </html>
 
