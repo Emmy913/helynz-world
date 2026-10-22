@@ -4,460 +4,162 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#101010">
+<meta name="theme-color" content="#111111">
 <title>Helynz World | Jewellery & Accessories</title>
-
 <style>
-:root {
-  --black: #101010;
-  --gold: #c9a45c;
-  --cream: #f8f4ec;
-  --white: #ffffff;
-  --gray: #777777;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: Arial, sans-serif;
-  background: var(--cream);
-  color: var(--black);
-}
-header {
-  background: var(--black);
-  color: white;
-  padding: 20px 5%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-.logo {
-  font-size: 22px;
-  letter-spacing: 2px;
-  font-weight: bold;
-  color: var(--gold);
-  text-decoration: none;
-}
-nav { display: flex; gap: 16px; flex-wrap: wrap; }
-nav a {
-  color: white;
-  text-decoration: none;
-  font-size: 13px;
-}
-nav a:hover { color: var(--gold); }
-
-.hero {
-  min-height: 450px;
-  background:
-    linear-gradient(90deg, rgba(0,0,0,.82), rgba(0,0,0,.25)),
-    url('https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=1600&q=85')
-    center/cover;
-  display: flex;
-  align-items: center;
-  padding: 55px 8%;
-  color: white;
-}
-.hero-content { max-width: 620px; }
-.eyebrow {
-  color: var(--gold);
-  letter-spacing: 3px;
-  font-size: 12px;
-  margin-bottom: 16px;
-}
-.hero h1 {
-  font-size: clamp(38px, 7vw, 65px);
-  line-height: 1.1;
-  margin-bottom: 18px;
-}
-.hero p {
-  line-height: 1.8;
-  color: #eeeeee;
-  max-width: 480px;
-  margin-bottom: 25px;
-}
-.btn {
-  display: inline-block;
-  background: var(--gold);
-  color: #111111;
-  padding: 13px 18px;
-  text-decoration: none;
-  font-weight: bold;
-  border: 0;
-  cursor: pointer;
-}
-.btn:hover { background: #e0c17e; }
-
-section { padding: 55px 6%; }
-.section-heading { text-align: center; margin-bottom: 28px; }
-.section-heading h2 { font-size: clamp(27px, 4vw, 38px); }
-.section-heading p:not(.eyebrow) {
-  color: var(--gray);
-  margin-top: 10px;
-  line-height: 1.7;
-}
-
-.categories {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-}
-.category {
-  height: 260px;
-  position: relative;
-  overflow: hidden;
-  background: #222222;
-}
-.category img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform .4s;
-}
-.category:hover img { transform: scale(1.05); }
-.category-text {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 22px;
-  color: white;
-  background: linear-gradient(transparent, rgba(0,0,0,.9));
-}
-.category-text h3 { font-size: 25px; margin-bottom: 8px; }
-
-.shop-bar {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 25px;
-}
-input, select {
-  padding: 12px;
-  border: 1px solid #dddddd;
-  background: white;
-  font-size: 14px;
-}
-#search { flex: 1; min-width: 160px; }
-
-.products {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
-}
-.product { background: white; padding-bottom: 15px; }
-.product img {
-  width: 100%;
-  height: 230px;
-  object-fit: cover;
-  background: #eeeeee;
-}
-.product-info { padding: 13px; }
-.product-info h3 { font-size: 15px; margin: 8px 0; }
-.product-info p { font-size: 12px; color: var(--gray); }
-.product-info button { width: 100%; font-size: 12px; padding: 12px 5px; }
-
-.bag { background: #171717; color: white; }
-.bag .section-heading p:not(.eyebrow) { color: #cccccc; }
-.bag-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 14px 0;
-  border-bottom: 1px solid #444444;
-  align-items: center;
-}
-.bag-row button {
-  background: none;
-  color: #e5c27d;
-  border: 0;
-  cursor: pointer;
-}
-.bag-total { font-size: 20px; margin: 24px 0; }
-.note { font-size: 12px; color: #bbbbbb; line-height: 1.7; margin-top: 14px; }
-.about {
-  text-align: center;
-  max-width: 760px;
-  margin: auto;
-  line-height: 1.9;
-}
-footer {
-  text-align: center;
-  background: #090909;
-  color: #cccccc;
-  padding: 27px 15px;
-  font-size: 13px;
-  line-height: 2;
-}
-footer strong { color: var(--gold); letter-spacing: 2px; font-size: 20px; }
-.empty { text-align: center; grid-column: 1/-1; padding: 30px; color: #777777; }
-
-@media(max-width: 900px) {
-  .products { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@media(max-width: 560px) {
-  header { justify-content: center; text-align: center; }
-  nav { justify-content: center; gap: 12px; }
-  .hero { min-height: 400px; padding: 40px 6%; }
-  .categories { grid-template-columns: 1fr; }
-  .category { height: 240px; }
-  .products { gap: 11px; }
-  .product img { height: 175px; }
-  .product-info { padding: 9px; }
-  section { padding: 42px 5%; }
-}
+*{box-sizing:border-box}
+:root{--gold:#d8b66a;--dark:#111;--card:#1c1c1c;--light:#f8f4eb}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--dark);color:var(--light);font-family:Arial,sans-serif;line-height:1.6}
+header{text-align:center;padding:24px 12px;border-bottom:1px solid #393124}
+.logo{font-size:29px;font-weight:800;letter-spacing:2px;color:var(--gold)}
+header p{margin:3px 0;color:#ddd;font-size:12px;letter-spacing:2px}
+nav{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;padding:14px}
+nav a{color:var(--light);text-decoration:none;font-size:14px}
+nav a:hover{color:var(--gold)}
+.hero{text-align:center;padding:65px 18px 55px;background:linear-gradient(145deg,#292319,#111)}
+.hero small{color:var(--gold);letter-spacing:3px}
+.hero h1{font-size:clamp(32px,7vw,54px);line-height:1.15;margin:18px auto;max-width:700px}
+.hero p{color:#d4d0c8;max-width:540px;margin:0 auto 25px}
+.btn{display:inline-block;background:var(--gold);color:#17130b;padding:13px 20px;border-radius:4px;text-decoration:none;font-weight:bold;border:0;cursor:pointer}
+section{padding:45px 16px;max-width:1100px;margin:auto}
+.section-title{text-align:center;margin-bottom:28px}
+.section-title h2{font-size:28px;margin:0;color:var(--gold)}
+.section-title p{color:#c9c4b9}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:16px}
+.product{background:var(--card);border:1px solid #333;border-radius:8px;overflow:hidden}
+.product img{display:block;width:100%;height:220px;object-fit:cover;background:#292929}
+.product-info{padding:13px}
+.product h3{font-size:16px;margin:0 0 6px}
+.product p{font-size:13px;color:#c9c4b9;margin:0 0 12px}
+.product a{display:block;text-align:center;padding:10px 5px;background:transparent;color:var(--gold);border:1px solid var(--gold);border-radius:4px;text-decoration:none;font-size:13px}
+.about{text-align:center;max-width:700px}
+.about p{color:#d4d0c8}
+.contact{text-align:center;background:#1c1a16;border-radius:8px;padding:30px 18px}
+footer{text-align:center;padding:25px;color:#bdb6a7;border-top:1px solid #393124;font-size:13px}
 </style>
 </head>
-
 <body>
+
 <header>
-  <a href="#home" class="logo">HELYNZ WORLD 🌎</a>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#collections">Collections</a>
-    <a href="#shop">Shop</a>
-    <a href="#about">About Us</a>
-    <a href="#bag">Bag (<span id="bag-count">0</span>)</a>
-  </nav>
+  <div class="logo">HELYNZ WORLD 🌎</div>
+  <p>BEAUTY IN EVERY DETAIL</p>
 </header>
 
-<main>
-<section class="hero" id="home">
-  <div class="hero-content">
-    <p class="eyebrow">BEAUTY • ELEGANCE • QUALITY</p>
-    <h1>Jewellery That Makes You Shine.</h1>
-    <p>Discover beautiful jewellery and accessories that complement your style. Find elegant pieces for everyday wear, special occasions and thoughtful gifts.</p>
-    <a href="#shop" class="btn">EXPLORE OUR COLLECTION</a>
-  </div>
-</section>
+<nav>
+  <a href="#home">Home</a>
+  <a href="#shop">Our Collection</a>
+  <a href="#about">About Us</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-<section id="collections">
-  <div class="section-heading">
-    <p class="eyebrow">FIND YOUR FAVOURITE</p>
-    <h2>Explore Our Collections</h2>
-    <p>Beautiful details. Timeless elegance. A style that is uniquely yours.</p>
-  </div>
-
-  <div class="categories">
-    <a href="#shop" class="category" onclick="setCategory('Jewellery')">
-      <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=900&q=85" alt="Jewellery collection">
-      <div class="category-text">
-        <h3>Jewellery</h3>
-        <span>Find your sparkle ↗</span>
-      </div>
-    </a>
-
-    <a href="#shop" class="category" onclick="setCategory('Accessories')">
-      <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=900&q=85" alt="Elegant accessories">
-      <div class="category-text">
-        <h3>Accessories</h3>
-        <span>Complete your look ↗</span>
-      </div>
-    </a>
-  </div>
-</section>
+<div class="hero" id="home">
+  <small>JEWELLERY • STYLE • ELEGANCE</small>
+  <h1>Make Every Moment Shine.</h1>
+  <p>Discover beautiful jewellery and accessories selected to add elegance, confidence and beauty to your everyday style.</p>
+  <a class="btn" href="#shop">Explore Our Collection</a>
+</div>
 
 <section id="shop">
-  <div class="section-heading">
-    <p class="eyebrow">THE HELYNZ COLLECTION</p>
-    <h2>Shop Our Products</h2>
-    <p>Discover beautiful jewellery, necklaces, earrings, bracelets and accessories.</p>
+  <div class="section-title">
+    <h2>Our Collection</h2>
+    <p>Find a beautiful piece that matches your style.</p>
   </div>
 
-  <div class="shop-bar">
-    <input id="search" type="search" placeholder="Search products..." oninput="renderProducts()">
-    <select id="type" onchange="renderProducts()">
-      <option value="All">All Categories</option>
-      <option value="Necklaces">Necklaces</option>
-      <option value="Earrings">Earrings</option>
-      <option value="Bracelets">Bracelets</option>
-      <option value="Jewellery Sets">Jewellery Sets</option>
-      <option value="Accessories">Accessories</option>
-    </select>
-  </div>
+  <div class="products">
 
-  <div class="products" id="products"></div>
-  <p style="font-size:12px;color:#777;margin-top:18px;text-align:center">
-    Prices are available on request. Message us on WhatsApp to enquire about any item.
-  </p>
+    <div class="product">
+      <img src="e5536c05-1d92-4810-ab99-7d7ac4ddb96f.jpeg" alt="Jewellery collection 1">
+      <div class="product-info">
+        <h3>Elegant Collection 1</h3>
+        <p>Beautiful style for every occasion.</p>
+        <a href="https://wa.me/2348037801263?text=Hello%20Helynz%20World%2C%20please%20tell%20me%20the%20price%20of%20Elegant%20Collection%201." target="_blank" rel="noopener">Ask for Price</a>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="849d887f-dfd3-4368-8b23-26fdc2bafe51.jpeg" alt="Jewellery collection 2">
+      <div class="product-info">
+        <h3>Elegant Collection 2</h3>
+        <p>A lovely addition to your look.</p>
+        <a href="https://wa.me/2348037801263?text=Hello%20Helynz%20World%2C%20please%20tell%20me%20the%20price%20of%20Elegant%20Collection%202." target="_blank" rel="noopener">Ask for Price</a>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="6505915e-1f5b-4685-acf0-9c90abbb7fe5.jpeg" alt="Jewellery collection 3">
+      <div class="product-info">
+        <h3>Elegant Collection 3</h3>
+        <p>Style that makes you stand out.</p>
+        <a href="https://wa.me/2348037801263?text=Hello%20Helynz%20World%2C%20please%20tell%20me%20the%20price%20of%20Elegant%20Collection%203." target="_blank" rel="noopener">Ask for Price</a>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="07d8bc1d-07a7-46be-9e6c-29e76baac9fe.jpeg" alt="Jewellery collection 4">
+      <div class="product-info">
+        <h3>Elegant Collection 4</h3>
+        <p>Beauty in every little detail.</p>
+        <a href="https://wa.me/2348037801263?text=Hello%20Helynz%20World%2C%20please%20tell%20me%20the%20price%20of%20Elegant%20Collection%204." target="_blank" rel="noopener">Ask for Price</a>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="fe6ffd1e-f1c3-48f7-bdcd-191fadf22aa2.jpeg" alt="Jewellery collection 5">
+      <div class="product-info">
+        <h3>Elegant Collection 5</h3>
+        <p>A special piece for your collection.</p>
+        <a href="https://wa.me/2348037801263?text=Hello%20Helynz%20World%2C%20please%20tell%20me%20the%20price%20of%20Elegant%20Collection%205." target="_blank" rel="noopener">Ask for Price</a>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="1e3608ed-e763-4d85-acef-146fa1f3eb4a.jpeg" alt="Jewellery collection 6">
+      <div class="product-info">
+        <h3>Elegant Collection 6</h3>
+        <p>Simple, beautiful and timeless.</p>
+        <a href="https://wa.me/2348037801263?text=Hello%20Helynz%20World%2C%20please%20tell%20me%20the%20price%20of%20Elegant%20Collection%206." target="_blank" rel="noopener">Ask for Price</a>
+      </div>
+    </div>
+
+    <div class="product">
+      <img src="eefce15f-3b42-4108-a7d4-d75c6c0c54ee.jpeg" alt="Jewellery collection 7">
+      <div class="product-info">
+        <h3>Elegant Collection 7</h3>
+        <p>Complete your look with elegance.</p>
+        <a href="https://wa.me/2348037801263?text=Hello%20Helynz%20World%2C%20please%20tell%20me%20the%20price%20of%20Elegant%20Collection%207." target="_blank" rel="noopener">Ask for Price</a>
+      </div>
+    </div>
+
+  </div>
 </section>
 
-<section class="bag" id="bag">
-  <div class="section-heading">
-    <p class="eyebrow">YOUR FAVOURITES</p>
-    <h2>Your Selection</h2>
-    <p>Choose the items you would like to ask us about.</p>
+<section id="about" class="about">
+  <div class="section-title">
+    <h2>About Helynz World</h2>
   </div>
-
-  <div id="bag-items"><p>Your selection is empty.</p></div>
-  <button class="btn" onclick="checkout()">ASK FOR PRICE ON WHATSAPP ↗</button>
-  <p class="note">Send your selected items to Helynz World on WhatsApp to ask about prices, availability and delivery. No payment is collected on this website.</p>
+  <p>Welcome to Helynz World 🌎, where beauty meets elegance. We help you find lovely jewellery and accessories to complement your personal style.</p>
+  <p>Interested in an item? Contact us on WhatsApp to ask about its price, availability and delivery.</p>
 </section>
 
-<section id="about">
-  <div class="about">
-    <p class="eyebrow">ABOUT HELYNZ WORLD</p>
-    <h2>Little Details. Beautiful Impressions.</h2>
-    <p style="margin-top:18px">
-      Helynz World 🌎 brings you beautiful jewellery and accessories to help you express your personal style. Browse our collection and contact us directly for prices and orders.
-    </p>
-    <p style="margin-top:20px">
-      <a class="btn" href="https://wa.me/2348037801263?text=Hello%20Helynz%20World%2C%20I%20would%20like%20to%20make%20an%20enquiry." target="_blank" rel="noopener">CHAT WITH US ON WHATSAPP</a>
-    </p>
+<section id="contact">
+  <div class="contact">
+    <div class="section-title">
+      <h2>Let's Talk</h2>
+      <p>Have a question about an item? We would love to hear from you.</p>
+    </div>
+    <a class="btn" href="https://wa.me/2348037801263?text=Hello%20Helynz%20World%2C%20I%20am%20interested%20in%20your%20jewellery%20collection." target="_blank" rel="noopener">Chat with Us on WhatsApp</a>
   </div>
 </section>
-</main>
 
 <footer>
-  <strong>HELYNZ WORLD 🌎</strong>
-  <p>Beauty • Elegance • Quality</p>
-  <p>For prices and orders, contact us through WhatsApp.</p>
+  <p>HELYNZ WORLD 🌎</p>
+  <p>Beauty in Every Detail.</p>
   <p>© 2026 Helynz World. All rights reserved.</p>
 </footer>
 
-<script>
-const WHATSAPP_NUMBER = "2348037801263";
-
-const productsData = [
-  {
-    id: 1,
-    name: "Elegant Necklace",
-    type: "Necklaces",
-    image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=700&q=85"
-  },
-  {
-    id: 2,
-    name: "Classic Earrings",
-    type: "Earrings",
-    image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=700&q=85"
-  },
-  {
-    id: 3,
-    name: "Beautiful Bracelet",
-    type: "Bracelets",
-    image: "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=700&q=85"
-  },
-  {
-    id: 4,
-    name: "Elegant Jewellery Set",
-    type: "Jewellery Sets",
-    image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=700&q=85"
-  },
-  {
-    id: 5,
-    name: "Statement Necklace",
-    type: "Necklaces",
-    image: "https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=700&q=85"
-  },
-  {
-    id: 6,
-    name: "Fashion Earrings",
-    type: "Earrings",
-    image: "https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=700&q=85"
-  },
-  {
-    id: 7,
-    name: "Jewellery Gift Set",
-    type: "Jewellery Sets",
-    image: "https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=700&q=85"
-  },
-  {
-    id: 8,
-    name: "Fashion Accessory",
-    type: "Accessories",
-    image: "https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=700&q=85"
-  }
-];
-
-let bag = [];
-
-function setCategory(value) {
-  document.getElementById("type").value = value;
-  renderProducts();
-}
-
-function renderProducts() {
-  const search = document.getElementById("search").value.toLowerCase();
-  const type = document.getElementById("type").value;
-
-  const items = productsData.filter(p =>
-    p.name.toLowerCase().includes(search) &&
-    (type === "All" || p.type === type)
-  );
-
-  const container = document.getElementById("products");
-
-  if (!items.length) {
-    container.innerHTML = '<p class="empty">No products found. Try another search.</p>';
-    return;
-  }
-
-  container.innerHTML = items.map(p => `
-    <article class="product">
-      <img src="${p.image}" alt="${p.name}" loading="lazy">
-      <div class="product-info">
-        <p>${p.type}</p>
-        <h3>${p.name}</h3>
-        <button class="btn" onclick="addToBag(${p.id})">ASK FOR PRICE</button>
-      </div>
-    </article>
-  `).join("");
-}
-
-function addToBag(id) {
-  const product = productsData.find(p => p.id === id);
-  bag.push({ ...product, cartId: Date.now() + Math.random() });
-  renderBag();
-  document.getElementById("bag").scrollIntoView({ behavior: "smooth" });
-}
-
-function removeFromBag(cartId) {
-  bag = bag.filter(item => item.cartId !== cartId);
-  renderBag();
-}
-
-function renderBag() {
-  document.getElementById("bag-count").textContent = bag.length;
-  const container = document.getElementById("bag-items");
-
-  if (!bag.length) {
-    container.innerHTML = "<p>Your selection is empty.</p>";
-  } else {
-    container.innerHTML = bag.map(item => `
-      <div class="bag-row">
-        <div><strong>${item.name}</strong><br>
-        <small>${item.type}</small></div>
-        <button onclick="removeFromBag(${item.cartId})">Remove</button>
-      </div>
-    `).join("");
-  }
-}
-
-function checkout() {
-  if (!bag.length) {
-    const message = "Hello Helynz World 🌎, please send me your jewellery and accessories catalogue and prices.";
-    window.open(
-      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
-      "_blank"
-    );
-    return;
-  }
-
-  const order = bag.map((item, index) =>
-    `${index + 1}. ${item.name} (${item.type})`
-  ).join("\n");
-
-  const message = `Hello Helynz World 🌎! I would like to ask about these items:\n\n${order}\n\nPlease confirm the prices, availability and delivery details.`;
-
-  window.open(
-    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,
-    "_blank"
-  );
-}
-
-renderProducts();
-renderBag();
-</script>
 </body>
 </html>
+
+
 
